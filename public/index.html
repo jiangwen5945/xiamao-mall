@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+  <noscript>
+    <strong>
+      We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.
+    </strong>
+  </noscript>
+  <div id="app"></div>
+  <div id="dialog"></div>
+  <!-- built files will be auto injected -->
+  <!-- <script src="http://connect.qq.com/qc_jssdk.js" data-appid="100556005" data-redirecturi="http://localhost/:866/#/login/callback"></script> -->
+</body>
+
+</html>
+<style>
+   /* 
+   处理dialog关闭时Message消息提示抖动:
+   当overflow的值为overlay时，行为与auto相同，但滚动条绘制在内容之上而不是占用空间。 
+   仅在基于WebKit（例如，Safari）和基于Blink的（例如，Chrome或Opera）浏览器中受支持 
+   */
+  /* html,
+  body {
+    overflow:overlay;
+  } */
+</style>
