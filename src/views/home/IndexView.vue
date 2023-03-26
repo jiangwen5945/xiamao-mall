@@ -3,12 +3,12 @@
   <div class='home-container'>
     <!-- 首页头部 -->
     <common-category
-      :categoryList="categoryBanners"
-      :sliderList="imageBanners"
-      :imgRecommends="imgRecommends"
+      :categoryList="homeData.categoryBanners"
+      :sliderList="homeData.imageBanners"
+      :imgRecommends="homeData.imgRecommends"
     ></common-category>
     <!-- 热门品牌模块 -->
-    <brands-module :hotBrands="hotBrands"></brands-module>
+    <brands-module :hotBrands="homeData.hotBrands"></brands-module>
     <!-- 各类商品模块 -->
     <goods-module></goods-module>
     <!-- 新鲜好物模块 -->
@@ -35,9 +35,7 @@ export default {
     // 获取首页数据
     const store = useStore()
     const homeData = computed(() => store.state.homeData)
-    return {
-      ...homeData.value
-    }
+    return { homeData }
   }
 }
 </script>
