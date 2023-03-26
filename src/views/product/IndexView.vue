@@ -33,11 +33,9 @@
         <GoodsWarn/>
       </div>
     </div>
-    <!-- 24热榜+专题推荐 -->
+    <!-- 相关热销+专题推荐 -->
     <div class="goods-aside">
-      <GoodsHot :goodsId="goods.id" :type="1" />
-      <GoodsHot :goodsId="goods.id" :type="2" />
-      <GoodsHot :goodsId="goods.id" :type="3" />
+      <GoodsHot :goods="goods.hotByDay" :type="1" />
     </div>
   </div>
 </div>

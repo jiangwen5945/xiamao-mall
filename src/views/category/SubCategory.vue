@@ -117,6 +117,7 @@ export default {
       margin-bottom: 20px;
       padding-top: 20px;
       overflow: hidden;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
       &:hover {
         box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
         transform: translate3d(0, -2px, 0);

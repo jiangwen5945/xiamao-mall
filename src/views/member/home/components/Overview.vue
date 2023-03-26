@@ -4,7 +4,7 @@
     <!-- 用户信息 -->
     <div class="user-meta">
       <div class="avatar">
-        <img :src="$store.state.user.profile.avatar"/>
+        <img :src="$store.state.user.profile.avatar" />
       </div>
       <h4>{{$store.state.user.profile.nickname}}</h4>
     </div>

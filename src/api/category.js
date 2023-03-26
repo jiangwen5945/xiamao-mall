@@ -4,7 +4,6 @@ export const findTopCategory = (id) => {
   return http({
     url: '/category',
     method: 'get',
-    isMock: true,
     data: { id }
   })
 }
@@ -13,7 +12,6 @@ export const findSubCategoryFilter = (id) => {
   return http({
     url: '/category/sub/filter',
     method: 'get',
-    isMock: true,
     data: { id }
   })
 }
@@ -22,7 +20,6 @@ export const findSubCategoryGoods = (params) => {
   return http({
     url: '/category/goods/temporary',
     method: 'post',
-    isMock: true,
     data: params
   })
 }

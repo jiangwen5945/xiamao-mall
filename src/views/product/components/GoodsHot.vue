@@ -1,14 +1,13 @@
 <template>
 <div class="goods-hot">
   <h3>{{title}}</h3>
-  <div>
-    <CardGoods v-for="item in goodsHot" :key="item.id" :goodsParm="item"/>
-  </div>
+  <CardGoods v-for="item in goods" :key="item.id" :goodsParm="item" width="280px"/>
 </div>
 </template>
 
 <script>
-import { getCurrentInstance, computed, ref } from 'vue'
+// import { getCurrentInstance, computed, ref } from 'vue'
+import { computed } from 'vue'
 import CardGoods from '@/components/CardGoods.vue'
 export default {
   name: 'GoodsHot',
@@ -16,6 +15,10 @@ export default {
     type: {
       type: Number,
       default: 1
+    },
+    goods: {
+      type: Object,
+      default: () => {}
     }
   },
   components: { CardGoods },
@@ -29,15 +32,15 @@ export default {
       return titleObj[props.type]
     })
     // 获取热销商品
-    const { proxy } = getCurrentInstance()
-    const goodsHot = ref(null)
-    proxy.$api.getGoodsHot().then(res => {
-      res.splice(4)
-      goodsHot.value = res
-    })
+    // const { proxy } = getCurrentInstance()
+    // const goodsHot = ref(null)
+    // proxy.$api.getGoodsHot().then(res => {
+    //   res.splice(4)
+    //   goodsHot.value = res
+    // })
     return {
-      title,
-      goodsHot
+      title
+      // goodsHot
     }
   }
 }

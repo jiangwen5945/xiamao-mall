@@ -5,7 +5,6 @@ export const findCheckoutInfo = (params) => {
   return http({
     url: '/member/order/pre',
     method: 'get',
-    isMock: true,
     data: params
   })
 }
@@ -14,7 +13,6 @@ export const addAddress = (params) => {
   return http({
     url: '/member/address',
     method: 'post',
-    isMock: true,
     data: params
   })
 }
@@ -23,7 +21,6 @@ export const editAddress = (params) => {
   return http({
     url: '/member/address',
     method: 'put',
-    isMock: true,
     data: params
   })
 }
@@ -32,7 +29,6 @@ export const createOrder = (params) => {
   return http({
     url: '/member/order',
     method: 'post',
-    isMock: true,
     data: params
   })
 }
@@ -41,7 +37,6 @@ export const findOrder = (id) => {
   return http({
     url: `/member/order/${id}`,
     method: 'get',
-    isMock: true,
     data: { id }
   })
 }
@@ -50,7 +45,6 @@ export const logisticsOrder = (id) => {
   return http({
     url: `/member/order/${id}/logistics`,
     method: 'get',
-    isMock: true,
     data: { id }
   })
 }
@@ -59,7 +53,6 @@ export const confirmOrder = (id) => {
   return http({
     url: `/member/order/${id}/receipt`,
     method: 'put',
-    isMock: true,
     data: { id }
   })
 }
@@ -68,7 +61,6 @@ export const findOrderRepurchase = ({ id }) => {
   return http({
     url: `/member/order/repurchase/${id}`,
     method: 'get',
-    isMock: true,
     data: { id }
   })
 }

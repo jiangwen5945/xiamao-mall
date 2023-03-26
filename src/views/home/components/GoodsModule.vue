@@ -76,12 +76,11 @@ export default {
   width: @baseWidth;
   .banner {
     height: 614px;
-    width: 236px;
-    background: rgba(0, 0, 0, .8);
+    width: 234px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 14px;
+    margin-right: 16px;
   }
   .goods-list {
     width: 990px;

@@ -100,6 +100,7 @@ export default {
  .sub-filter {
     background: #fff;
     padding: 25px;
+    min-height: 220px;
     .item {
       display: flex;
       line-height: 40px;

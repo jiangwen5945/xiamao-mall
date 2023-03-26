@@ -163,33 +163,32 @@ export default {
 
       .menu-wrapper {
         width: 100%;
-        height: 250px;
         position: absolute;
         top: 120px;
         left: 0;
         z-index: 100;
-        overflow: hidden;
-
         .menu-list {
-          height: 210px;
+          display: flex;
+          // justify-content: space-around;
+          height: 166px;
           width: 1240px;
           background: rgb(255, 255, 255);
           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
           z-index: 100;
           overflow: hidden;
           margin: 10px auto;
-          display: flex;
-          justify-content: space-around;
           .menu-item {
-            width: 100%;
-            padding: 40px 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
+            width: 150px;
+            height: 150px;
+            padding: 16px;
+            text-align: center;
+            &:not(:nth-child(6n)) {
+              margin-right: calc(22% / 4);
+            }
             img {
-              margin-bottom: 10px;
+              width: 100%;
+              height: 100%;
+              margin-bottom: 4px;
             }
           }
         }

@@ -29,8 +29,8 @@ export default {
       default: ''
     },
     skuId: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 10000
     }
   },
   components: {
@@ -45,7 +45,6 @@ export default {
       visible.value = true
       proxy.$api.getSpecsAndSkus(props.skuId).then(res => {
         goods.value = res
-        console.log('getCurrentInstance', res)
       })
     }
     const hide = () => {
@@ -60,7 +59,6 @@ export default {
       hide()
     })
     const changeSku = (sku) => {
-      console.log('changeSku', sku)
       currSku.value = sku
     }
     // 点击确认的时候，提交sku信息给购物车组件

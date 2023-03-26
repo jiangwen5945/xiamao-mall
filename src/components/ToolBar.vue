@@ -35,14 +35,14 @@ export default {
       isHideBack.value = scrollTop.value < 500
     }
     const backTop = () => {
+      const top = document.body.scrollTop || document.documentElement.scrollTop
+      const speed = top / 20
       const scrollTopTimer = setInterval(() => {
-        const top = document.body.scrollTop || document.documentElement.scrollTop
-        const speed = top / 10
         document.documentElement.scrollTop -= speed
-        if (top === 0) {
+        if (document.documentElement.scrollTop <= 0) {
           clearInterval(scrollTopTimer)
         }
-      }, 30)
+      }, 50)
     }
     return {
       isHideBack,

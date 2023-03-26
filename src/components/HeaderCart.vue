@@ -111,7 +111,8 @@ export default {
             padding: 0 10px;
             width: 200px;
           .name {
-            font-size: 16px;
+            font-size: 14px;
+            color: #333;
           }
           .attr {
             color: #999;

@@ -88,8 +88,8 @@ export default {
       default: () => ({})
     },
     skuId: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 10000
     }
   },
   setup (props, { emit }) {
@@ -117,7 +117,6 @@ export default {
       if (selectedArr.length === props.goods.specs.length) {
         const skuIds = pathMap[selectedArr.join(spliter)]
         const sku = props.goods.skus.find(sku => sku.id === skuIds[0])
-        console.log('触发change事件将sku数据传递出去')
         // 传递
         emit('change', {
           skuId: sku.id,

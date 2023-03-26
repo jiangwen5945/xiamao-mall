@@ -11,7 +11,6 @@ export default {
     return http({
       url: '/home/index',
       method: 'get',
-      isMock: true,
       data: params
     })
   },

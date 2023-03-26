@@ -141,6 +141,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+    z-index: 99;
     > span {
       width: 130px;
       text-align: center;

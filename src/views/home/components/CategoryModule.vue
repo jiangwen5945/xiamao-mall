@@ -32,13 +32,13 @@
         <!--轮播区底部开始-->
         <ul class="category-bottom">
           <li class="icon-wrapper">
-            <a class="icon-item" v-for="(icon,index) in iconList" :key="index">
-              <span><j-icon :iconClass="icon"/></span>
-              <span>图标名称</span>
+            <a class="icon-item" v-for="(item,index) in iconList" :key="index">
+              <span><j-icon :iconClass="item.icon" size="22px"/></span>
+              <span>{{item.title}}</span>
             </a>
           </li>
-          <li v-for="(item,index) in 3" :key="index">
-            <img src="@/assets/images/sm-ad.png" />
+          <li v-for="item in imgRecommends" :key="item.id">
+            <img :src="item.imgUrl"/>
           </li>
         </ul>
       </div>
@@ -59,12 +59,23 @@ export default {
     sliderList: {
       type: Array,
       default: () => []
+    },
+    imgRecommends: {
+      type: Array,
+      default: () => []
     }
   },
   setup (props) {
     // const store = useStore()
     // 图标列表
-    const iconList = ['tishi', 'tishi', 'tishi', 'tishi', 'tishi', 'tishi']
+    const iconList = [
+      { icon: 'pinpai', title: '品牌' },
+      { icon: 'icon', title: '口碑' },
+      { icon: 'shoucang', title: '收藏' },
+      { icon: 'Field-time', title: '时效' },
+      { icon: 'huiyuan', title: '会员' },
+      { icon: 'gongzhonghao', title: '公众号' }
+    ]
     // 获取分类数据
     // const categoryList = computed(() => store.state.categoryList)
     // 控制分类二级菜单显示隐藏
@@ -190,8 +201,9 @@ export default {
           background: #5f5750
         }
         img {
-            width: 316px;
-            height: 170px;
+          width: 316px;
+          height: 170px;
+          object-fit: cover;//转化不同类型
         }
         .icon-item {
           display: flex;
@@ -202,11 +214,11 @@ export default {
           color: rgb(207, 205, 203);
           font-size: 12px;
           text-align: center;
+          &:hover{
+            color: #fff
+          }
           span {
             margin: 4px 0;
-            &:hover{
-              color: #fff
-            }
           };
         }
     }

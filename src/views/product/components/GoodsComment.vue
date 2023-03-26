@@ -71,8 +71,12 @@
 import Api from '@/api'
 import { ref, watch, reactive } from 'vue'
 import { useRoute } from 'vue-router'
+import GoodsCommentImage from '@/components/GoodsCommentImage.vue'
 export default {
   name: 'GoodsComment',
+  components: {
+    GoodsCommentImage
+  },
   setup (props, { emit }) {
     const commentList = ref([])
     const evaluate = ref([])

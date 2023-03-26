@@ -52,7 +52,6 @@ request.interceptors.response.use(response => {
 
 // 请求工具函数
 export default (option) => {
-  console.log('请求工具函数参数', option)
   // 是否单独配置模拟数据，否则使用统一配置
   const isMock = typeof option.isMock === 'undefined' ? config.isMock : option.isMock
   // 如果是线上环境，强制不使用mock数据,否则根据mock总开关配置而定

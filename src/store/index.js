@@ -15,23 +15,11 @@ export default createStore({
   mutations: {
     setHomeData (state, data) {
       state.homeData = data
-      // 将数据存入本地会话缓存中
-      sessionStorage.setItem('HOME-INFO', JSON.stringify(data))
     }
   },
   actions: {
     async getHomeData ({ commit }) {
-      let data = null
-      // 缓存数据
-      const cacheHomeData = JSON.parse(sessionStorage.getItem('HOME-INFO'))
-      if (cacheHomeData) {
-        data = cacheHomeData
-        console.log('使用缓存数据 ==>', data)
-      } else {
-        data = await api.getHomeData()
-        console.log('使用请求返回数据 ==>', data)
-      }
-      // 传递数据至mutations
+      const data = await api.getHomeData()
       commit('setHomeData', data)
     }
   },
@@ -44,7 +32,7 @@ export default createStore({
   plugins: [
     createPersistedstate({
       key: 'MALL-CLIENT-PC-STORE',
-      paths: ['user', 'cart', 'category', 'member']
+      paths: ['homeData', 'user', 'cart', 'category', 'member']
     })
   ]
 })
