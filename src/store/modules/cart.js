@@ -65,7 +65,6 @@ export default {
     },
     // 删除购物车商品
     deleteCart (state, skuId) {
-      console.log('删除购物车商品', state, skuId)
       const index = state.list.findIndex(item => item.skuId === skuId)
       state.list.splice(index, 1)
     },
@@ -100,7 +99,6 @@ export default {
     },
     // 添加购物车商品
     insertCart (ctx, goods) {
-      console.log('加入购物车商品', goods)
       return new Promise((resolve, reject) => {
         if (ctx.rootState.user.token) {
           // 已登录
@@ -170,13 +168,13 @@ export default {
         if (ctx.rootState.user.profile.token) {
           // 登录 TODO
           api.deleteCart(skuId).then(() => api.findCartList()).then(res => {
-            console.log('登录:触发删除购物车商品actions', res)
+            // console.log('登录:触发删除购物车商品actions', res)
             ctx.commit('setCartList', res)
             resolve()
           })
         } else {
           // 本地
-          console.log('未登录：触发删除购物车商品actions', skuId)
+          // console.log('未登录：触发删除购物车商品actions', skuId)
           ctx.commit('deleteCart', skuId)
           resolve()
         }

@@ -94,7 +94,7 @@ export default {
   },
   setup (props, { emit }) {
     const pathMap = getPathMap(props.goods.skus)
-    console.log('当前商品skus路径字典', pathMap)
+    // console.log('当前商品skus路径字典', pathMap)
     // 根据传入的skuId默认选中规格按钮
     initSelectedStatus(props.goods, props.skuId)
     // 组件初始化的时候更新禁用状态

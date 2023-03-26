@@ -34,7 +34,6 @@ export default {
     const num = useVModel(props, 'modelValue', emit)
     const changeNum = (value) => {
       const newValue = num.value + value
-      console.log('newValue', newValue, props.max)
       if (newValue < props.min) return
       if (newValue > props.max) return
       num.value = newValue

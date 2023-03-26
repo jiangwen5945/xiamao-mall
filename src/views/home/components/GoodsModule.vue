@@ -46,7 +46,7 @@ export default {
     const { proxy } = getCurrentInstance()
     const { target, result } = useLazyData(proxy.$api.getHomeData, 'categoryBanners')
     const categoryBanners = computed(() => result.value.slice(0, 4))
-    console.log('GoodsModule懒加载方式获取数据', result)
+    // console.log('GoodsModule懒加载方式获取数据', result)
     // 常规方式获取数据
     // const store = useStore()
     // const cacheHomeData = JSON.parse(sessionStorage.getItem('HOME-INFO'))

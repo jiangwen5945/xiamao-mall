@@ -51,10 +51,6 @@ export default {
       }
     }
 
-    // const onCodeInput = (e) => {
-    //   console.log(props.modelValue, e)
-    //   return emit('update:modelValue', e)
-    // }
     const code = ref(props.modelValue)
 
     // 页面卸载时

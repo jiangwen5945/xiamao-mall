@@ -37,8 +37,8 @@ export default {
     LoginForm
   },
   setup () {
-    console.log('BASE_URL: ', process.env.BASE_URL)
-    console.log('VUE_APP_API: ', process.env.VUE_APP_API)
+    // console.log('BASE_URL: ', process.env.BASE_URL)
+    // console.log('VUE_APP_API: ', process.env.VUE_APP_API)
     const activeName = ref('account')
     // 记录跳转登录前的地址，提供QQ回调页使用
     const store = useStore()

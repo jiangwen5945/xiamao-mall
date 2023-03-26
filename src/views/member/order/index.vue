@@ -72,7 +72,6 @@ export default {
     const getOrderList = () => {
       Loading.open({ modelValue: true })
       proxy.$api.findOrderList(requestParams).then(res => {
-        console.log('请求订单列表方法', res)
         orders.value = res
         // 关闭加载
         setTimeout(Loading.close, 500)
@@ -81,7 +80,6 @@ export default {
 
     // 菜单切换事件
     const handleTabState = (stateIndex) => {
-      console.log('handleTabStatu', stateIndex.index)
       requestParams.orderState = stateIndex.index
       requestParams.page = 1
     }
@@ -94,7 +92,6 @@ export default {
     // 删除订单
     const onDeleteOrder = (order) => {
       proxy.$api.delteOrder({ id: order.id }).then(res => {
-        console.log('删除订单', order)
         Message({ message: '删除订单成功', type: 'success' })
         getOrderList() // 重新请求列表数据
       })
@@ -102,7 +99,6 @@ export default {
 
     // 分页切换
     const onChangePage = (currentPage) => {
-      console.log('分页切换', currentPage)
       requestParams.page = currentPage
     }
     return { activeName, handleTabState, orderStatus, orders, onChangePage, ...useCancelOrder(getOrderList), onDeleteOrder, ...useConfirmOrder(), ...useLogisticsOrder(), requestParams }

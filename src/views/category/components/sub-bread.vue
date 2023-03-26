@@ -23,7 +23,6 @@ export default {
       const obj = {}
       store.state.homeData.categoryBanners.forEach(top => {
         top.children && top.children.forEach(sub => {
-          console.log('呼呼嘿嘿2', sub.id, route.params.id)
           if (sub.id === route.params.id) {
             // 设置二级类目
             obj.sub = { id: sub.id, name: sub.name }
@@ -32,7 +31,6 @@ export default {
           }
         })
       })
-      console.log('obj', obj)
       return obj
     })
     // 模版需要使用的东西需要setup返回

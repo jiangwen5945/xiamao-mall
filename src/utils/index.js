@@ -44,7 +44,7 @@ export const myEvent = {
     const myEvent = new Event(name)
     this.map[name] = myEvent
     window.addEventListener(name, (event) => {
-      console.log('得到数据为：', event.detail)
+      // console.log('得到数据为：', event.detail)
       work(this.map[name].detail)
     })
   }

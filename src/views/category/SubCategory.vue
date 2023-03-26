@@ -65,7 +65,6 @@ export default {
     }
     // 切换二级分类重新加载
     watch(() => route.params.id, (newVal) => {
-      console.log('切换二级分类重新加载')
       if (newVal && ('/category/sub/' + newVal) === route.path) {
         goodsList.value = []
         finished.value = false
@@ -89,7 +88,6 @@ export default {
       // 合并请求参数，保留之前参数
       reqParams = { ...reqParams, ...sortParams }
       reqParams.page = 1
-      console.log('监听排序改变')
       goodsList.value = []
       finished.value = false
       getData() // 拉取排序后的商品数据

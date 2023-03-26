@@ -18,7 +18,6 @@ export const userMobileLogin = (params) => {
 }
 // QQ登录
 export const userQQLogin = (unionId, source = 6) => {
-  console.log('sendMsgCode', unionId)
   return http({
     url: '/login/social',
     method: 'post',
@@ -27,7 +26,6 @@ export const userQQLogin = (unionId, source = 6) => {
 }
 // 发送短信验证码
 export const sendMsgCode = (mobile) => {
-  console.log('sendMsgCode', mobile)
   return http({
     url: '/sendCode',
     method: 'get',

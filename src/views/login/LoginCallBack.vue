@@ -41,12 +41,12 @@ export default {
     const isBind = ref(true)
     const store = useStore()
     const router = useRouter()
-    console.log(store, router)
+    // console.log(store, router)
     // 检查是否已经QQ登录
     if (QC.Login.check()) {
       // 假设已经绑定，默认会去做一次登录，如果登录失败证明未绑定。
       QC.Login.getMe((openId) => {
-        console.log('openId', openId)
+        // console.log('openId', openId)
         // 已注册已绑定（mock数据）
         // const mId1 = openId
         // 已注册未绑定（mock数据）
@@ -55,7 +55,6 @@ export default {
         // const mId3 = '12345'
         proxy.$api.userQQLogin('a123456').then(res => {
           // 使用qq登录成功
-          console.log('qq登录成功', res)
           const { id, account, avatar, mobile, nickname, token } = res
           userName.value = nickname
           userAvatar.value = avatar

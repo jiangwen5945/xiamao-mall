@@ -89,7 +89,6 @@ export default {
       res.tags.unshift({ type: 'img', title: '有图', tagCount: res.hasPictureCount })
       res.tags.unshift({ type: 'all', title: '全部评价', tagCount: res.evaluateCount })
       evaluate.value = res
-      console.log('评价总览', evaluate.value)
     })
 
     // 筛选条件准备
@@ -105,7 +104,6 @@ export default {
     watch(reqParams, async () => {
       // 评价列表数据
       const commentData = await Api.findCommentListByGoods(route.params.id, reqParams)
-      console.log('评价列表数据', commentData)
       commentList.value = commentData.items
       total.value = commentData.counts
     }, { immediate: true })
@@ -122,7 +120,6 @@ export default {
       currTagIndex.value = index
       // 设置有图和标签条件
       const currTag = evaluate.value.tags[index]
-      console.log('currTag', evaluate.value.tags[index])
       if (currTag.type === 'all') {
         reqParams.hasPicture = false
         reqParams.tag = null

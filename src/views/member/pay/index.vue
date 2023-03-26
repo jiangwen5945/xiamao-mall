@@ -93,7 +93,7 @@ export default {
       window.open(payUrl, '_blank')
       // 模拟后台支付返回结果跳转...
       setTimeout(() => {
-        console.log('orderId', route.query.orderId)
+        // console.log('orderId', route.query.orderId)
         router.push({ path: '/pay/callback', query: { payResult: true, orderId: route.query.orderId } }) // 跳转到支付结果状态页面
       }, 5000)
     }

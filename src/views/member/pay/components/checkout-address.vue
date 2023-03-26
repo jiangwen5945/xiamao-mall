@@ -60,7 +60,6 @@ export default {
     const showAddress = ref(null) // 默认显示的地址
     const selectedAddress = ref(null) // 切换选择的地址
     if (props.list.length) {
-      console.log('props.list', props.list)
       const defaultAddress = props.list.find(item => item.isDefault === 1)
       if (defaultAddress) {
         showAddress.value = defaultAddress
@@ -102,7 +101,6 @@ export default {
 
     // 处理添加&修改地址成功后的操作
     const onSuccess = (formData) => {
-      console.log('onSuccess', formData)
       const editAddress = props.list.find(item => item.id === formData.id) // 获取被修改的地址信息
       if (editAddress) { // 修改
         for (const key in editAddress) {

@@ -141,9 +141,7 @@ export default {
       Confirm({ text: '您确定从购物车删除该商品吗？' }).then(() => {
         Message({ type: 'success', message: '删除成功' })
         store.dispatch('cart/deleteCart', item.skuId)
-      }).catch(e => {
-        console.log('点击取消')
-      })
+      }).catch(e => e)
     }
     // 批量删除
     const batchDeleteCart = (isClear) => {
@@ -168,7 +166,6 @@ export default {
     }
     // 修改数量
     const changeCount = (skuId, count) => {
-      console.log('修改数量', skuId, count)
       store.dispatch('cart/updateCart', { skuId, count })
     }
     // 修改规格

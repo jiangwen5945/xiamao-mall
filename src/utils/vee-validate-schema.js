@@ -2,7 +2,6 @@
 export default {
   // 校验account
   account (value) {
-    console.log('account', value)
     // value是将来使用该规则的表单元素的值
     // 1. 必填
     // 2. 6-20个字符，需要以字母开头

@@ -77,7 +77,6 @@ export default {
         }
       })
       if (attrs.length) filterParams.attrs = attrs
-      console.log('当前筛选参数', filterParams)
       return filterParams
     }
     // 选择品牌

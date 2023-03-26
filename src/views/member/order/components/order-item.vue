@@ -101,9 +101,7 @@ export default {
       Confirm({ text: '您确定删除该订单吗？' }).then(() => {
         emit('onDeleteOrder', order)
         Message({ type: 'success', message: '删除成功' })
-      }).catch(e => {
-        console.log('点击取消')
-      })
+      }).catch(e => e)
     }
     return { orderStatus, isDisabledPay, payButtonType, timeText, deleteOrder }
   }

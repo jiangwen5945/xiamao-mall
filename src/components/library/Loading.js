@@ -18,14 +18,14 @@ const scrollFn = {
   stopScroll () {
     // 设置弹窗前滚动的位置
     this.stopSite = window.scrollY
-    console.log('开启锁定滚动', this.stopSite)
+    // console.log('开启锁定滚动', this.stopSite)
     document.body.style.position = 'fixed'
     document.body.style.top = '-' + this.stopSite + 'px'
     document.body.style.width = 'calc(100% - 6px)'
   },
   // 恢复滚动
   resetScroll () {
-    console.log('恢复滚动', this.stopSite)
+    // console.log('恢复滚动', this.stopSite)
     document.body.style.position = 'static'
     window.scrollTo(0, this.stopSite)
     document.body.style.width = '100%'

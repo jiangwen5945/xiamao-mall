@@ -22,7 +22,7 @@ export const useLazyData = (apiFn, childrenNode) => {
         // 调用API获取数据
         apiFn().then(data => {
           result.value = data[childrenNode] || data
-          console.log('数据懒加载函数调用API获取数据', result.value)
+          // console.log('数据懒加载函数调用API获取数据', result.value)
         })
       }
     }

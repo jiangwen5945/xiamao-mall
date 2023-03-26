@@ -77,7 +77,6 @@ export default {
     const currSku = ref(null)
     // 获取商品详情
     proxy.$api.getGoodsDetail({ id: route.params.id }).then(res => {
-      console.log('获取商品详情', res)
       goods.value = res
     })
     provide('goods', goods)
@@ -91,11 +90,9 @@ export default {
       } else {
         currSku.value = null
       }
-      console.log('获取选中商品规格', goods)
     }
     // 加入购物车
     const insertCart = () => {
-      console.log('加入购物车')
       if (!currSku.value) {
         return proxy.$message({ message: '请选择商品规格', type: 'warn' })
       }

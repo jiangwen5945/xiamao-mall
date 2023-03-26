@@ -38,7 +38,7 @@ export default {
     const { proxy } = getCurrentInstance()
     const { target, result } = useLazyData(proxy.$api.getHomeData, 'freshGoods')
     const freshGoods = computed(() => result.value.slice(0, 4))
-    console.log('NewsModule懒加载方式获取数据', result)
+    // console.log('NewsModule懒加载方式获取数据', result)
     return {
       freshGoods,
       target

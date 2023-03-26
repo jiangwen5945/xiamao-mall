@@ -135,7 +135,6 @@ export default {
         userData.value = await Api[currentApi](form)
         // 登录成功后进行处理
         if (Object.keys(userData.value).length !== 0 && userData.value.id) {
-          console.log('登录成功', userData.value)
           // 1. 存储用户信息
           const { id, account, nickname, avatar, token, mobile } = userData.value
           store.commit('user/setUser', { id, account, nickname, avatar, token, mobile })

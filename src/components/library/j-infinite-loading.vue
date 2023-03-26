@@ -27,16 +27,16 @@ export default {
   },
   setup (props, { emit }) {
     const target = ref(null)
-    console.log('1.初始化无限加载组件')
+    // console.log('1.初始化无限加载组件')
     // 监听target是否进入可视区
     useIntersectionObserver(
       target,
       ([{ isIntersecting }]) => {
-        console.log('2.监听target是否进入可视区')
+        // console.log('2.监听target是否进入可视区')
         if (isIntersecting) {
-          console.log('3:进入可视区了')
+          // console.log('3:进入可视区了')
           if (props.loading === false && props.finished === false) {
-            console.log('4:加载数据中...')
+            // console.log('4:加载数据中...')
             emit('infinite')
           }
         }
