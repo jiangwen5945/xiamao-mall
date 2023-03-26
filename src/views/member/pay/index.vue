@@ -25,7 +25,6 @@
         <div class="item">
           <p>支付平台</p>
           <a class="btn wx" href="javascript:;"></a>
-          <!-- <a class="btn alipay" :href="payUrl" target="_blank" @click="dialogVisible = true"></a> -->
           <span class="btn alipay"  @click="handleAlipay"></span>
         </div>
         <div class="item">
@@ -83,21 +82,21 @@ export default {
     const router = useRouter()
     const dialogVisible = ref(false)
 
+    // 模拟打开后台支付服务地址
     // 支付地址:const payUrl = '后台服务基准地址+支付页面地址+订单ID+回跳地址'
-    const baseURL = 'https://apipc-xiaotuxian-front.itheima.net/'
-    const redirect = encodeURIComponent('http://www.corho.com:8080/#/pay/callback')
-    const payUrl = `${baseURL}pay/aliPay?orderId=${route.query.orderId}&redirect=${redirect}`
+    // const baseURL = ''
+    // const redirect = encodeURIComponent('')
+    // const payUrl = `${baseURL}pay/aliPay?orderId=${route.query.orderId}&redirect=${redirect}`
     const handleAlipay = () => {
-      // 模拟打开后台支付服务地址
       dialogVisible.value = true
-      window.open(payUrl, '_blank')
+      // window.open('payUrl', '_blank')
       // 模拟后台支付返回结果跳转...
       setTimeout(() => {
-        // console.log('orderId', route.query.orderId)
+        console.log('orderId', route.query.orderId)
         router.push({ path: '/pay/callback', query: { payResult: true, orderId: route.query.orderId } }) // 跳转到支付结果状态页面
       }, 5000)
     }
-    return { order, timeText, payUrl, dialogVisible, handleAlipay }
+    return { order, timeText, dialogVisible, handleAlipay }
   }
 }
 </script>

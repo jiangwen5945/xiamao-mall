@@ -9,7 +9,7 @@
         <div class="rside">
           <span v-if="!profile.token" class="member-icon">
             <router-link to="/login">登录</router-link>
-            <router-link to="/login">注册</router-link>
+            <router-link to="/login/callback">注册</router-link>
           </span>
           <span v-else  class="member-icon">
             <router-link to="/member">
