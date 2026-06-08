@@ -32,7 +32,7 @@
 // import { useStore } from 'vuex'
 import CardPanel from '../../../components/CardPanel.vue'
 import CardGoods from '../../../components/CardGoods.vue'
-import { getCurrentInstance, computed } from 'vue'
+import { getCurrentInstance } from 'vue'
 import { useLazyData } from '@/hooks'
 import ModuleSkeleton from '../../../components/ModuleSkeleton.vue'
 export default {
@@ -44,8 +44,8 @@ export default {
   setup () {
     // 懒加载方式获取数据
     const { proxy } = getCurrentInstance()
-    const { target, result } = useLazyData(proxy.$api.getHomeData, 'categoryBanners')
-    const categoryBanners = computed(() => result.value.slice(0, 4))
+    const { target, result: categoryBanners } = useLazyData(proxy.$api.getHomeData, 'categoryBanners')
+    // const categoryBanners = computed(() => result.value.slice(0, 4))
     // console.log('GoodsModule懒加载方式获取数据', result)
     // 常规方式获取数据
     // const store = useStore()

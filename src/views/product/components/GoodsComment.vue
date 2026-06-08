@@ -137,8 +137,9 @@ export default {
     const formatSpecs = (specs) => {
       return specs.reduce((p, c) => `${p} ${c.name}：${c.nameValue}`, '').trim()
     }
+    // 用户名脱敏处理
     const formatNickname = (nickname) => {
-      return nickname.substr(0, 1) + '***' + nickname.substr(-1)
+      return nickname.substr(0, 1) + '*' + nickname.substr(-1)
     }
 
     // 改变分页函数

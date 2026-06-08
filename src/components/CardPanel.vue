@@ -1,7 +1,7 @@
 <template>
-  <div class="card-panel" :style="{width: width}">
-    <div class="head"  v-if="title">
-      <h3>{{ title }}<small>{{ subTitle }}</small></h3>
+  <div class="card-panel">
+    <div class="head" v-if="title" :style="customizeStyle">
+      <h3 class="title">{{ title }}<small>{{ subTitle }}</small></h3>
       <slot name="right" />
     </div>
     <!-- 没有数据时候的骨架屏标题 -->
@@ -21,13 +21,15 @@ export default {
       type: String,
       default: ''
     },
-    width: {
-      type: String,
-      default: '1240px'
-    },
     subTitle: {
       type: String,
       default: ''
+    },
+    customizeStyle: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   }
 }
@@ -39,16 +41,14 @@ export default {
   margin: 0 auto;
   position: relative;
   .head {
-    padding: 40px 0;
+    margin: 20px 0;
     display: flex;
     align-items: flex-end;
-    h3 {
+    .title {
       flex: 1;
-      font-size: 32px;
-      font-weight: 400;
-      height: 35px;
-      line-height: 35px;
-      text-align: left;
+      font-size: 22px;
+      font-weight: 200;
+      color: #333;
       small {
         font-size: 16px;
         color: #999;

@@ -34,7 +34,10 @@ export default {
   setup () {
     // 获取首页数据
     const store = useStore()
-    const homeData = computed(() => store.state.homeData)
+    const homeData = computed(() => {
+      return store.state.homeData
+    })
+
     return { homeData }
   }
 }

@@ -8,7 +8,7 @@
       </router-link>
       <!-- 商品标题 -->
       <div class="header-nav"  @mouseenter="setHideMenu(false)" @mouseleave="setHideMenu(true)">
-        <span @mouseenter="setSubMenu(item.children)" v-for="(item, index) in categoryList" :key="index" :data-index="index">
+        <span class="nav-item" @mouseenter="setSubMenu(item.children)" v-for="(item, index) in categoryList" :key="index" :data-index="index">
           <router-link class="title"  :to="/category/+item.id">{{ item.name || item }}</router-link>
         </span>
         <transition>
@@ -124,17 +124,23 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 696px;
+      // max-width: 696px;
+      .nav-item{
+        flex: 1;
+        text-align: center;
+      }
 
       li {
         height: 100%;
         padding: 0 10px;
-        max-width: 80px;
+        // max-width: 80px;
+        flex: 1;
         text-align: center;
         display: flex;
         align-items: center;
 
         .title {
+          flex: 1;
           text-align: center;
           font-size: 16px;
           color: rgb(51, 51, 51);

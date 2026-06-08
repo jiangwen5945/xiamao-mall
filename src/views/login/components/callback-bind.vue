@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
     <div class="user-info">
-      <img :src="avatar"/>
+      <img :src="defaultAvatar"/>
       <p>Hi， {{ nickname }}欢迎来瞎猫商城，完成绑定后可以QQ账号一键登录哦~</p>
     </div>
     <Form class="form" :validation-schema="mySchema" autocomplete="off" v-slot="{errors}" ref="formRef">
@@ -41,7 +41,8 @@ export default {
       default: ''
     }
   },
-  setup () {
+  setup (prop) {
+    const defaultAvatar = prop.avatar || 'https://jiangwen-images.oss-cn-hangzhou.aliyuncs.com/avatar/10002.jpg'
     const formRef = ref(null)
     const form = reactive({
       mobile: '',
@@ -61,10 +62,10 @@ export default {
       try {
         if (!valid) Message({ message: '格式验证未通过', type: 'error' })
       } catch {
-
+        Message({ message: '格式验证未通过', type: 'error' })
       }
     }
-    return { formRef, form, mySchema, onSubmit, isActive }
+    return { formRef, form, mySchema, onSubmit, isActive, defaultAvatar }
   }
 }
 </script>
@@ -86,6 +87,7 @@ export default {
       background: #f2f2f2;
       width: 60px;
       height: 60px;
+      border-radius: 10px;
     }
     p {
       padding-left: 10px;

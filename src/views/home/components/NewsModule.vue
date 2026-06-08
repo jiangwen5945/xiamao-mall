@@ -55,6 +55,7 @@ export default {
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+  width: 1240px;
   .list-item{
     transition: all .3s linear;
     transform: translate3d(0, 0, 0);

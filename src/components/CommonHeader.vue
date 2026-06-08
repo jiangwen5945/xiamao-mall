@@ -132,17 +132,18 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 696px;
+      // max-width: 696px;
 
       li {
+        flex:1;
         height: 100%;
         padding: 0 10px;
-        max-width: 80px;
+        // max-width: 80px;
         text-align: center;
         display: flex;
         align-items: center;
-        color: red;
         .title {
+          flex:1;
           text-align: center;
           font-size: 16px;
           color: rgb(51, 51, 51);
@@ -150,6 +151,7 @@ export default {
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
+          padding-bottom: 8px;
           &:hover {
             color: @themeColor;
             border-bottom: 1px solid  @themeColor

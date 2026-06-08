@@ -2,7 +2,7 @@
   <div class='j-carousel'  @mouseenter="stop()" @mouseleave="start()">
     <ul class="carousel-body">
       <li class="carousel-item"  v-for="(item,i) in sliders" :key="i" :class="{fade:index===i}">
-        <RouterLink to="/">
+        <RouterLink :to="`/product/${item.id}`">
           <img :src="item.imgUrl" alt="">
         </RouterLink>
       </li>

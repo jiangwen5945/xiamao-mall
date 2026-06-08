@@ -1,6 +1,6 @@
 <!-- 热门品牌模块 -->
 <template>
-  <card-panel  title="热门品牌" sub-title="国际大牌 品质保证" ref="target">
+  <card-panel  title="热门品牌" sub-title="国际大牌 品质保证" ref="target" :customize-style="customizeStyle">
     <!-- 面板标题 -->
     <template v-slot:right>
       <span class="icon-wrap" :class="{disabled:index <= 0}" @click="handleToggle(-1)">
@@ -53,10 +53,15 @@ export default {
       if (newIndex < 0 || newIndex > pageNum.value) return
       index.value = newIndex
     }
+    // 面板自定义样式
+    const customizeStyle = {
+      margin: '20px 0 0 0'
+    }
     return {
       index,
       handleToggle,
-      pageNum
+      pageNum,
+      customizeStyle
     }
   }
 }
@@ -96,6 +101,7 @@ export default {
       width: 240px;
       margin-right: 10px;
       flex: 0 0 240px;
+      height: 305px;
       // 重要: 不然会导致切换下一页的时候,起始位置不对
       &:nth-child(5n) {
         margin-right: 0;
