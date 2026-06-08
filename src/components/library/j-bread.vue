@@ -1,15 +1,15 @@
 <script>
 import { h } from 'vue'
+import JIcon from './j-icon.vue'
 export default {
   name: 'JBread',
   render () {
     const items = this.$slots.default()
     const dymanicItems = []
-    const icon = <j-icon iconClass='arrow-right' color='#666'/>
     items.forEach((item, i) => {
       dymanicItems.push(item)
       if (i < (items.length - 1)) {
-        dymanicItems.push(h(icon))
+        dymanicItems.push(h(JIcon, { iconClass: 'arrow-right', color: '#666' }))
       }
     })
     return h('div', { class: 'j-bread' }, dymanicItems)

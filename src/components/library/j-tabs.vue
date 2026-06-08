@@ -1,12 +1,12 @@
 <script>
-import { provide, ref } from 'vue'
+import { provide, ref, h } from 'vue'
 export default {
   name: 'JTabs',
   render () {
-    // 获取插槽内容
     const panels = this.$slots.default()
-    const pagination = <div class='pagination-container'>{this.$slots.pagination()}</div>
-    // 动态插槽内容
+    const pagination = this.$slots.pagination
+      ? h('div', { class: 'pagination-container' }, this.$slots.pagination())
+      : null
     const dynamicPanels = []
     panels.forEach(item => {
       if (item.type.name === 'JTabPanel') {
@@ -17,29 +17,22 @@ export default {
         })
       }
     })
-    // 选项卡导航菜单结构内容(动态生成的tabs-panel无法正常运行)
-    const nav = <nav>
-      {
-        dynamicPanels.map((e, i) => {
-          return <span
-            onClick={() => this.tabClick(e.props.name, i)}
-            class={{ active: e.props.name === this.activeName }}
-          >
-            {e.props.label}
-          </span>
-        })
-      }
-    </nav>
-    return <div class="j-tabs">{[nav, panels, pagination]}</div>
+    const nav = h(
+      'nav',
+      dynamicPanels.map((e, i) => {
+        return h('span', {
+          class: { active: e.props.name === this.activeName },
+          onClick: () => this.tabClick(e.props.name, i)
+        }, e.props.label)
+      })
+    )
+    return h('div', { class: 'j-tabs' }, [nav, panels, pagination].filter(Boolean))
   },
   setup (props, { emit }) {
     const activeName = ref('all')
-    // 依赖注入传值
     provide('activeName', activeName)
-    // 点击选项卡对应的处理函数
     const tabClick = (name, index) => {
       activeName.value = name
-      // 触发一个点击自定义事件
       emit('clickTab', { name, index })
     }
     return { activeName, tabClick }

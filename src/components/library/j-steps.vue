@@ -1,5 +1,5 @@
 <script>
-import { getCurrentInstance } from 'vue'
+import { getCurrentInstance, h } from 'vue'
 export default {
   name: 'JSteps',
   props: {
@@ -10,11 +10,9 @@ export default {
   },
   render () {
     const { ctx } = getCurrentInstance()
-    const items = ctx.$slots.default() // 获取插槽的节点
-    const dynamicItems = [] // 获取动态生成（for循环）的JStepsItem组件节点
-    // 组装动态列表
+    const items = ctx.$slots.default()
+    const dynamicItems = []
     items.forEach(item => {
-      // 匹配到JStepsItem直接插入容器JSteps中
       if (item.type.name === 'JStepsItem') {
         dynamicItems.push(item)
       } else {
@@ -26,15 +24,15 @@ export default {
     const itemsJsx = dynamicItems.map((item, i) => {
       const currentClass = i < this.active ? 'j-steps-item active' : 'j-steps-item'
       const currentDesc = i < this.active ? item.props.desc : ''
-      return (
-          <div class={ currentClass }>
-            <div class="step"><span>{i + 1}</span></div>
-            <div class="title">{item.props.title}</div>
-            <div class="desc">{ currentDesc }</div>
-          </div>
-      )
+      return h('div', { class: currentClass }, [
+        h('div', { class: 'step' }, [
+          h('span', String(i + 1))
+        ]),
+        h('div', { class: 'title' }, item.props.title),
+        h('div', { class: 'desc' }, currentDesc)
+      ])
     })
-    return <div class="j-steps">{itemsJsx}</div>
+    return h('div', { class: 'j-steps' }, itemsJsx)
   }
 }
 </script>
