@@ -2,6 +2,7 @@ const { defineConfig } = require('@vue/cli-service') // 帮手函数，以获得
 const path = require('path')
 // 文档说明：https://next.cli.vuejs.org/zh/config/#vue-config-js
 module.exports = defineConfig({
+  parallel: false,
   // 部署应用包时的基本 URL
   publicPath: process.env.NODE_ENV === 'production'
     ? '/'
